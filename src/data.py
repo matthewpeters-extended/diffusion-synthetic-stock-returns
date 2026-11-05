@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from src import config
+from src import config, gbm
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW_DIR = ROOT / "data" / "raw"
@@ -75,8 +75,7 @@ def build_dataset(tickers=config.TICKERS) -> dict:
         out["scale"][t] = s
         tr, te = train.to_numpy() / s, test.to_numpy() / s
         # GBM calibration inputs, in the same standardized units.
-        out["mu"][t] = float(tr.mean())
-        out["sigma"][t] = float(tr.std())
+        out["mu"][t], out["sigma"][t] = gbm.calibrate(tr)
         for key, arr, stride in (
             ("train", tr, config.TRAIN_STRIDE),
             ("train_eval", tr, config.EVAL_STRIDE),
