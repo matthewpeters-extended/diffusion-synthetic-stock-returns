@@ -1,0 +1,18 @@
+# Core
+numpy
+pandas
+scipy
+statsmodels
+
+# Model (CPU-only; the macOS wheel has no CUDA)
+torch
+
+# Data
+yfinance
+
+# Viz
+matplotlib
+
+# Notebooks / tests
+jupyter
+pytest
