@@ -24,4 +24,6 @@ EVAL_STRIDE = WINDOW  # non-overlapping windows for evaluation
 
 ACF_LAGS = 20  # 64-day windows can't support longer lags honestly
 
+N_SAMPLES = 2000  # synthetic windows per generator (diffusion and GBM alike)
+
 SEED = 0

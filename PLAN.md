@@ -57,7 +57,8 @@ Every comparison is on the same windows and in the same standardized units:
 1. **Headline, volatility clustering:** the mean ACF of `|r|` over lags 1 to 20 for diffusion is closer to `real_test` than GBM's is.
 2. **Fat tails:** diffusion's excess kurtosis is closer to `real_test` than GBM's is.
 3. **Skew:** diffusion's skewness is closer to `real_test` than GBM's is.
-4. **No linear autocorrelation:** diffusion's mean |ACF(r)| over lags 1 to 20 stays below 2/√N, where N is the number of diffusion returns.
+4. **No linear autocorrelation:** diffusion's mean |ACF(r)| over lags 1 to 20 is no larger than `real_test`'s. In other words, the model must not invent linear predictability the real data lacks.
+   - *Amended in MAT-44:* this was originally "below 2/√N". Real data fails that test itself: lag-1 ACF is about -0.07 to -0.09, outside the band. See [docs/DATA.md](docs/DATA.md).
 5. **Distribution:** diffusion's Wasserstein-1 distance to `real_test` is smaller than GBM's.
 
 These are reported pass or fail as measured, including any failures. RESULTS.md states the numbers plainly, whichever way they land.
