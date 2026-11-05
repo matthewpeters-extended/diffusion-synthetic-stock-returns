@@ -1,0 +1,19 @@
+{
+  "name": "r2_lr1e-3_40k",
+  "channels": 64,
+  "dilations": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "T": 1000,
+  "steps": 40000,
+  "batch_size": 256,
+  "lr": 0.001,
+  "ema_decay": 0.999,
+  "n_samples": 2000,
+  "seed": 0
+}
